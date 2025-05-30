@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitud de Recogida - Tectronics</title>
+  <style>
+    body { font-family: 'Roboto', sans-serif; color: #333; padding: 20px; }
+    h1 { font-size: 24px; }
+    .form-section { margin-bottom: 15px; }
+    .form-section label { font-weight: bold; display: block; margin-bottom: 5px; }
+    .form-section input[type="text"],
+    .form-section input[type="email"] {
+      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;
+    }
+    .conditions {
+      border: 1px solid #ddd; padding: 10px; max-height: 200px;
+      overflow-y: auto; background: #f9f9f9; font-size: 14px;
+    }
+    .btn { padding: 10px 20px; background: #007bff; color: white;
+      border: none; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background: #0056b3; }
+    .error-message { color: #d9534f; margin-top: 10px; display: none; }
+  </style>
+</head>
+<body>
+  <h1>Solicitud de Recogida - Tectronics</h1>
+  <p>Todos los campos son obligatorios.</p>
+  <form id="recogidaForm">
+    <div class="form-section"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required></div>
+    <div class="form-section"><label for="apellidos">Apellidos *</label><input type="text" id="apellidos" name="apellidos" required></div>
+    <div class="form-section"><label for="nif">NIF *</label><input type="text" id="nif" name="nif" required></div>
+    <div class="form-section"><label for="direccionRecogida">Dirección de Recogida *</label><input type="text" id="direccionRecogida" name="direccionRecogida" required></div>
+    <div class="form-section"><label for="codigoPostal">Código Postal *</label><input type="text" id="codigoPostal" name="codigoPostal" required></div>
+    <div class="form-section"><label for="poblacion">Población *</label><input type="text" id="poblacion" name="poblacion" required></div>
+    <div class="form-section"><label for="provincia">Provincia *</label><input type="text" id="provincia" name="provincia" required></div>
+    <div class="form-section"><label for="contacto">Contacto *</label><input type="text" id="contacto" name="contacto" required></div>
+    <div class="form-section"><label for="telefono">Teléfono *</label><input type="text" id="telefono" name="telefono" required></div>
+    <div class="form-section"><label for="correoElectronico">Correo Electrónico *</label><input type="email" id="correoElectronico" name="correoElectronico" required></div>
+
+    <div class="form-section">
+      <h2>Condiciones del Servicio</h2>
+      <div class="conditions" id="conditionsBox">
+      <p><strong>CONDICIONES DEL SERVICIO</strong></p>
+                        <p>El plazo de reparación será de entre 2 y 4 días laborables.</p>
+                        <p>Los gastos de transporte no están incluidos en el precio de las reparaciones y correrán siempre por cuenta del cliente. Los gastos de envío oscilan entre 10 y 15 € en península.</p>
+                        <p>Al enviar una unidad para su reparación, Tectronics asume que no se ha intentado reparar la pieza por terceros o el cliente, ya que esto suele conllevar un trabajo extra e incluso imposibilitar la reparación.</p>
+                        <p>El cliente se compromete a declarar todos los fallos de la unidad a reparar, así como historial del vehículo y anomalías, facilitando la labor de reparación y su proceso. Cualquier otro fallo detectado o no por el técnico encargado se pasará por alto. Tectronics queda exenta de toda responsabilidad de cualquier otro tipo de fallo no declarado en el registro inicial. Para cualquier reclamación sobre la dudosa reparación, que no pueda ser demostrada físically por la propia complejidad que presenta un vehículo en su conjunto, el cliente deberá aportar un informe con los resultados obtenidos, facilitando su estudio.</p>
+                        <p>Se cargará un gasto de comprobación si únicamente es necesario comprobar la pieza o si no es posible su reparación. La exactitud de una comprobación depende en gran medida de la descripción del fallo que el cliente proporcione; si esta descripción es insuficiente o poco clara y debido a ello no es posible realizar una comprobación exhaustiva, Tectronics cobrará 30 € por gastos de manipulación.</p>
+                        <p>Todos los presupuestos se muestran sin IVA y están sujetos a modificaciones.</p>
+                        <p>Es posible reparar piezas que no están en nuestro catálogo. Podemos investigar y reparar el problema. En este caso, y puesto que aún no tenemos desarrollado ningún procedimiento de reparación comprobado respecto a la duración de la vida útil de la pieza, y en algunos casos solo podemos realizar pruebas parciales, la reparación no siempre se consigue al 100%. Por lo tanto, no podemos garantizar una larga vida útil y pueden volver a averiarse luego de un tiempo. Estos siguen disfrutando de nuestra garantía. No obstante, debe tener en cuenta el cliente que en ocasiones no se puede reparar una pieza y podría volver a averiarse dentro del plazo de garantía.</p>
+                        <p>No nos hacemos responsables de la avería que tenga el vehículo. La reparación de la unidad no significa que podamos reparar por completo el vehículo, ya que puede haber otros componentes como cableado, programaciones, borrado de fallos mediante máquina de diagnosis, sincronizaciones u otras piezas implicadas en la avería. Si tras la reparación de la pieza, el problema vuelve a producirse debido a una avería del vehículo, el cliente debe hacerse cargo de la segunda reparación.</p>
+                        <p>No nos hacemos responsables de los gastos de montaje y desmontaje de la pieza en el vehículo; en cualquier caso, este gasto siempre repercutirá en el cliente, aunque por alguna casuística la reparación sea fallida y haya que volver a desmontar o montar la pieza.</p>
+                        <p>No aceptamos documentación original del vehículo; es responsabilidad del cliente proporcionarnos fotocopia de la documentación que solicitemos.</p>
+      
+      </div>
+      <label><input type="checkbox" id="aceptaCondiciones" name="aceptaCondiciones" required disabled> He leído y acepto las Condiciones del Servicio. *</label>
+    </div>
+
+    <div class="error-message" id="errorMessage"></div>
+    <button type="submit" class="btn">Enviar Solicitud</button>
+  </form>
+
+  <script>
+    const conditionsBox = document.getElementById('conditionsBox');
+    const acceptCheckbox = document.getElementById('aceptaCondiciones');
+    const form = document.getElementById('recogidaForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    conditionsBox.addEventListener('scroll', () => {
+      if (conditionsBox.scrollTop + conditionsBox.clientHeight >= conditionsBox.scrollHeight) {
+        acceptCheckbox.disabled = false;
+      }
+    });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorMessage.style.display = 'none';
+      errorMessage.textContent = '';
+
+      const requiredFields = [
+        'nombre', 'apellidos', 'nif', 'direccionRecogida',
+        'codigoPostal', 'poblacion', 'provincia',
+        'contacto', 'telefono', 'correoElectronico'
+      ];
+
+      const data = {};
+      const missingFields = [];
+
+      requiredFields.forEach(field => {
+        const value = form[field].value.trim();
+        if (!value) missingFields.push(field);
+        data[field] = value;
+      });
+
+      if (!form.aceptaCondiciones.checked) {
+        missingFields.push("aceptaCondiciones");
+      } else {
+        data["aceptaCondiciones"] = true;
+      }
+
+      if (missingFields.length > 0) {
+        errorMessage.textContent = 'Por favor, completa todos los campos obligatorios.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      try {
+        const response = await fetch("<https://defaultfd3603667814476a98dab42058b367.59.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3982d73a376c4a72a1c59a923934df31/triggers/manual/paths/invoke/?api-version=1&tenantId=tId&environmentName=Default-fd360366-7814-476a-98da-b42058b36759&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_PQJTRRtsQbghlRG6uziv-ZypBy09qLf8bLrbJUwN6E>>", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.mensaje || "Formulario enviado correctamente.");
+        form.reset();
+        acceptCheckbox.disabled = true;
+      } catch (err) {
+        errorMessage.textContent = 'Error al enviar la solicitud: ' + err.message;
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
