@@ -1,0 +1,36 @@
+# 1. Ir a la carpeta del proyecto
+cd "C:\Users\iComms\Desktop\Formulario de recogidas"
+
+# 2. Ver los archivos modificados
+git status
+
+# 3. Añadir todos los cambios realizados
+git add .
+
+# 4. Hacer un commit con un mensaje personalizado
+git commit -m "Actualizo formulario y lógica de envío"
+
+# 5. Subir los cambios a GitHub
+git push origin main
+
+# (Opcional) Si la rama aún no existe como 'main'
+# git branch -M main
+# git push -u origin main
+
+
+# Ver historial de commits
+git log --oneline
+
+# Ver diferencias antes del commit
+git diff
+
+# Ver configuración actual de usuario
+git config user.name
+git config user.email
+
+# Cambiar configuración de usuario (si hace falta)
+git config user.name "Nacho-corder"
+git config user.email "ign.vdd@gmail.com"
+
+# Ver la URL del repositorio remoto
+git remote -v

@@ -4,68 +4,254 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Solicitud de Recogida - Tectronics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Roboto', sans-serif; color: #333; padding: 20px; }
-    h1 { font-size: 24px; }
-    .form-section { margin-bottom: 15px; }
-    .form-section label { font-weight: bold; display: block; margin-bottom: 5px; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      color: #333; 
+      padding: 20px; 
+      background-image: url('https://i.ibb.co/CKmxcS04/large-vecteezy-ai-generated-circuit-board-background-computer-data-35425782-large.jpg'); 
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: fixed; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      margin: 0;
+    }
+    .form-container {
+      max-width: 600px; 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.95); 
+      padding: 20px; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+      border: 1px solid #ddd;
+    }
+    h1 { 
+      font-size: 24px; 
+      text-align: center; 
+      margin-bottom: 15px; 
+      color: #333; 
+    }
+    h2 { 
+      font-size: 20px; 
+      margin-bottom: 10px; 
+      color: #333; 
+    }
+    .form-section { 
+      margin-bottom: 15px; 
+    }
+    .form-section label { 
+      font-weight: bold; 
+      display: block; 
+      margin-bottom: 5px; 
+      color: #333; 
+    }
     .form-section input[type="text"],
     .form-section input[type="email"] {
-      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;
+      width: 100%; 
+      padding: 8px; 
+      border: 1px solid #ddd; 
+      border-radius: 5px; 
+      box-sizing: border-box; 
+      font-family: 'Roboto', sans-serif; 
+      font-size: 14px; 
+      transition: border-color 0.3s; 
+    }
+    .form-section input[type="text"]:focus,
+    .form-section input[type="email"]:focus {
+      border-color: #007bff; 
+      outline: none; 
     }
     .conditions {
-      border: 1px solid #ddd; padding: 10px; max-height: 200px;
-      overflow-y: auto; background: #f9f9f9; font-size: 14px;
+      border: 1px solid #ddd; 
+      padding: 10px; 
+      max-height: 200px; 
+      overflow-y: auto; 
+      background: #f9f9f9; 
+      font-size: 14px; 
+      border-radius: 5px; 
+      margin-bottom: 10px; 
     }
-    .btn { padding: 10px 20px; background: #007bff; color: white;
-      border: none; border-radius: 4px; cursor: pointer; }
-    .btn:hover { background: #0056b3; }
-    .error-message { color: #d9534f; margin-top: 10px; display: none; }
+    .btn { 
+      padding: 10px 20px; 
+      background: #007bff; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      display: block; 
+      width: 100%; 
+      font-family: 'Roboto', sans-serif; 
+      font-weight: bold; 
+      font-size: 16px; 
+      transition: background 0.3s ease; 
+    }
+    .btn:hover { 
+      background: #0056b3; 
+    }
+    .error-message { 
+      color: #d9534f; 
+      margin-top: 10px; 
+      display: none; 
+      text-align: center; 
+      font-size: 14px; 
+      font-family: 'Roboto', sans-serif; 
+    }
+    .form-section label input[type="checkbox"] {
+      margin-right: 5px; 
+    }
+    .success-section {
+      display: none; 
+      margin-top: 20px; 
+      padding: 15px; 
+      background: #e6f3e6; 
+      border-radius: 5px; 
+      border: 1px solid #28a745;
+    }
+    .success-section h2 {
+      color: #28a745; 
+      text-align: center;
+    }
+    .instruction-item {
+      margin-bottom: 15px; 
+      display: flex; 
+      align-items: center; 
+      gap: 15px;
+    }
+    .instruction-item p {
+      margin: 0; 
+      font-size: 14px; 
+      flex: 1;
+    }
+    .instruction-item i {
+      font-size: 40px; 
+      color: #007bff; 
+      width: 50px; 
+      text-align: center;
+    }
+    .centered-instruction {
+      margin-bottom: 15px; 
+      text-align: center; 
+    }
+    .centered-instruction p {
+      margin: 0; 
+      font-size: 18px; 
+      font-weight: bold; 
+      color: #333;
+    }
+    .centered-instruction i {
+      font-size: 50px; 
+      color: #28a745; 
+      display: block; 
+      margin-bottom: 10px;
+    }
+    @media (max-width: 768px) {
+      .form-container {
+        max-width: 90%; 
+        padding: 15px; 
+      }
+      h1 { 
+        font-size: 20px; 
+      }
+      .btn { 
+        padding: 8px 15px; 
+        font-size: 14px; 
+      }
+      .instruction-item i {
+        font-size: 30px; 
+        width: 40px;
+      }
+      .centered-instruction p {
+        font-size: 16px;
+      }
+      .centered-instruction i {
+        font-size: 40px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Solicitud de Recogida - Tectronics</h1>
-  <p>Todos los campos son obligatorios.</p>
-  <form id="recogidaForm">
-    <div class="form-section"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required></div>
-    <div class="form-section"><label for="apellidos">Apellidos *</label><input type="text" id="apellidos" name="apellidos" required></div>
-    <div class="form-section"><label for="nif">NIF *</label><input type="text" id="nif" name="nif" required></div>
-    <div class="form-section"><label for="direccionRecogida">Dirección de Recogida *</label><input type="text" id="direccionRecogida" name="direccionRecogida" required></div>
-    <div class="form-section"><label for="codigoPostal">Código Postal *</label><input type="text" id="codigoPostal" name="codigoPostal" required></div>
-    <div class="form-section"><label for="poblacion">Población *</label><input type="text" id="poblacion" name="poblacion" required></div>
-    <div class="form-section"><label for="provincia">Provincia *</label><input type="text" id="provincia" name="provincia" required></div>
-    <div class="form-section"><label for="contacto">Contacto *</label><input type="text" id="contacto" name="contacto" required></div>
-    <div class="form-section"><label for="telefono">Teléfono *</label><input type="text" id="telefono" name="telefono" required></div>
-    <div class="form-section"><label for="correoElectronico">Correo Electrónico *</label><input type="email" id="correoElectronico" name="correoElectronico" required></div>
-
-    <div class="form-section">
-      <h2>Condiciones del Servicio</h2>
-      <div class="conditions" id="conditionsBox">
-      <p><strong>CONDICIONES DEL SERVICIO</strong></p>
-                        <p>El plazo de reparación será de entre 2 y 4 días laborables.</p>
-                        <p>Los gastos de transporte no están incluidos en el precio de las reparaciones y correrán siempre por cuenta del cliente. Los gastos de envío oscilan entre 10 y 15 € en península.</p>
-                        <p>Al enviar una unidad para su reparación, Tectronics asume que no se ha intentado reparar la pieza por terceros o el cliente, ya que esto suele conllevar un trabajo extra e incluso imposibilitar la reparación.</p>
-                        <p>El cliente se compromete a declarar todos los fallos de la unidad a reparar, así como historial del vehículo y anomalías, facilitando la labor de reparación y su proceso. Cualquier otro fallo detectado o no por el técnico encargado se pasará por alto. Tectronics queda exenta de toda responsabilidad de cualquier otro tipo de fallo no declarado en el registro inicial. Para cualquier reclamación sobre la dudosa reparación, que no pueda ser demostrada físically por la propia complejidad que presenta un vehículo en su conjunto, el cliente deberá aportar un informe con los resultados obtenidos, facilitando su estudio.</p>
-                        <p>Se cargará un gasto de comprobación si únicamente es necesario comprobar la pieza o si no es posible su reparación. La exactitud de una comprobación depende en gran medida de la descripción del fallo que el cliente proporcione; si esta descripción es insuficiente o poco clara y debido a ello no es posible realizar una comprobación exhaustiva, Tectronics cobrará 30 € por gastos de manipulación.</p>
-                        <p>Todos los presupuestos se muestran sin IVA y están sujetos a modificaciones.</p>
-                        <p>Es posible reparar piezas que no están en nuestro catálogo. Podemos investigar y reparar el problema. En este caso, y puesto que aún no tenemos desarrollado ningún procedimiento de reparación comprobado respecto a la duración de la vida útil de la pieza, y en algunos casos solo podemos realizar pruebas parciales, la reparación no siempre se consigue al 100%. Por lo tanto, no podemos garantizar una larga vida útil y pueden volver a averiarse luego de un tiempo. Estos siguen disfrutando de nuestra garantía. No obstante, debe tener en cuenta el cliente que en ocasiones no se puede reparar una pieza y podría volver a averiarse dentro del plazo de garantía.</p>
-                        <p>No nos hacemos responsables de la avería que tenga el vehículo. La reparación de la unidad no significa que podamos reparar por completo el vehículo, ya que puede haber otros componentes como cableado, programaciones, borrado de fallos mediante máquina de diagnosis, sincronizaciones u otras piezas implicadas en la avería. Si tras la reparación de la pieza, el problema vuelve a producirse debido a una avería del vehículo, el cliente debe hacerse cargo de la segunda reparación.</p>
-                        <p>No nos hacemos responsables de los gastos de montaje y desmontaje de la pieza en el vehículo; en cualquier caso, este gasto siempre repercutirá en el cliente, aunque por alguna casuística la reparación sea fallida y haya que volver a desmontar o montar la pieza.</p>
-                        <p>No aceptamos documentación original del vehículo; es responsabilidad del cliente proporcionarnos fotocopia de la documentación que solicitemos.</p>
-      
+  <div class="form-container">
+    <h1>Solicitud de Recogida - Tectronics</h1>
+    <p>Todos los campos son obligatorios.</p>
+    <form id="recogidaForm">
+      <div class="form-section"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required></div>
+      <div class="form-section"><label for="apellidos">Apellidos *</label><input type="text" id="apellidos" name="apellidos" required></div>
+      <div class="form-section"><label for="nif">NIF *</label><input type="text" id="nif" name="nif" required></div>
+      <div class="form-section"><label for="direccionRecogida">Dirección de Recogida *</label><input type="text" id="direccionRecogida" name="direccionRecogida" required></div>
+      <div class="form-section"><label for="codigoPostal">Código Postal *</label><input type="text" id="codigoPostal" name="codigoPostal" required></div>
+      <div class="form-section"><label for="poblacion">Población *</label><input type="text" id="poblacion" name="poblacion" required></div>
+      <div class="form-section"><label for="provincia">Provincia *</label><input type="text" id="provincia" name="provincia" required></div>
+      <div class="form-section"><label for="contacto">Contacto *</label><input type="text" id="contacto" name="contacto" required></div>
+      <div class="form-section"><label for="telefono">Teléfono *</label><input type="text" id="telefono" name="telefono" required></div>
+      <div class="form-section"><label for="correoElectronico">Correo Electrónico *</label><input type="email" id="correoElectronico" name="correoElectronico" required></div>
+      <div class="form-section">
+        <h2>Condiciones del Servicio</h2>
+        <div class="conditions" id="conditionsBox">
+          <p><strong>CONDICIONES DEL SERVICIO</strong></p>
+          <p>El plazo de reparación será de entre 2 y 4 días laborables.</p>
+          <p>Los gastos de transporte no están incluidos en el precio de las reparaciones y correrán siempre por cuenta del cliente. Los gastos de envío oscilan entre 10 y 15 € en península.</p>
+          <p>Al enviar una unidad para su reparación, Tectronics asume que no se ha intentado reparar la pieza por terceros o el cliente, ya que esto suele conllevar un trabajo extra e incluso imposibilitar la reparación.</p>
+          <p>El cliente se compromete a declarar todos los fallos de la unidad a reparar, así como historial del vehículo y anomalías, facilitando la labor de reparación y su proceso. Cualquier otro fallo detectado o no por el técnico encargado se pasará por alto. Tectronics queda exenta de toda responsabilidad de cualquier otro tipo de fallo no declarado en el registro inicial. Para cualquier reclamación sobre la dudosa reparación, que no pueda ser demostrada físicamente por la propia complejidad que presenta un vehículo en su conjunto, el cliente deberá aportar un informe con los resultados obtenidos, facilitando su estudio.</p>
+          <p>Se cargará un gasto de comprobación si únicamente es necesario comprobar la pieza o si no es posible su reparación. La exactitud de una comprobación depende en gran medida de la descripción del fallo que el cliente proporcione; si esta descripción es insuficiente o poco clara y debido a ello no es posible realizar una comprobación exhaustiva, Tectronics cobrará 30 € por gastos de manipulación.</p>
+          <p>Todos los presupuestos se muestran sin IVA y están sujetos a modificaciones.</p>
+          <p>Es posible reparar piezas que no están en nuestro catálogo. Podemos investigar y reparar el problema. En este caso, y puesto que aún no tenemos desarrollado ningún procedimiento de reparación comprobado respecto a la duración de la vida útil de la pieza, y en algunos casos solo podemos realizar pruebas parciales, la reparación no siempre se consigue al 100%. Por lo tanto, no podemos garantizar una larga vida útil y pueden volver a averiarse luego de un tiempo. Estos siguen disfrutando de nuestra garantía. No obstante, debe tener en cuenta el cliente que en ocasiones no se puede reparar una pieza y podría volver a averiarse dentro del plazo de garantía.</p>
+          <p>No nos hacemos responsables de la avería que tenga el vehículo. La reparación de la unidad no significa que podamos reparar por completo el vehículo, ya que puede haber otros componentes como cableado, programaciones, borrado de fallos mediante máquina de diagnosis, sincronizaciones u otras piezas implicadas en la avería. Si tras la reparación de la pieza, el problema vuelve a producirse debido a una avería del vehículo, el cliente debe hacerse cargo de la segunda reparación.</p>
+          <p>No nos hacemos responsables de los gastos de montaje y desmontaje de la pieza en el vehículo; en cualquier caso, este gasto siempre repercutirá en el cliente, aunque por alguna casuística la reparación sea fallida y haya que volver a desmontar o montar la pieza.</p>
+          <p>No aceptamos documentación original del vehículo; es responsabilidad del cliente proporcionarnos fotocopia de la documentación que solicitemos.</p>
+        </div>
       </div>
-      <label><input type="checkbox" id="aceptaCondiciones" name="aceptaCondiciones" required disabled> He leído y acepto las Condiciones del Servicio. *</label>
+      <div class="form-section">
+        <label><input type="checkbox" id="aceptaCondiciones" name="aceptaCondiciones" required disabled> He leído y acepto las Condiciones del Servicio. *</label>
+      </div>
+      <div class="error-message" id="errorMessage"></div>
+      <button type="submit" class="btn">Enviar Solicitud</button>
+    </form>
+    <div class="success-section" id="successSection">
+      <h2>¡La solicitud de recogida se realizó con éxito!</h2>
+      <div class="instruction-item">
+        <i class="fas fa-box"></i>
+        <p><strong>ASEGURESE DE UN BUEN EMBALAJE</strong><br>Para un correcto transporte y que la pieza no sufra daños se debe utilizar una caja robusta con las paredes gruesas, relleno almohadillado con idea de que la pieza se quede en suspensión.</p>
+      </div>
+      <div class="instruction-item">
+        <i class="fas fa-oil-can"></i>
+        <p><strong>RETIRE FLUIDOS Y ACEITES</strong><br>Para que no se dañe la caja y causar imprevistos retire los posibles fluidos y aceites, para el envío envuelva la pieza en una toalla y posteriormente en una bolsa hermética.</p>
+      </div>
+      <div class="instruction-item">
+        <i class="fas fa-wrench"></i>
+        <p><strong>RETIRE SOPORTES Y PIEZAS DE SUJECIÓN</strong><br>Retire los elementos de sujeción de la pieza ya que cuando entra en cadena de re manufactura el soporte no lo hace y es posible su extravío o pérdida.</p>
+      </div>
+      <div class="instruction-item">
+        <i class="fas fa-file-alt"></i>
+        <p><strong>ADJUNTE FOTOCOPIA DE FICHA TÉCNICA</strong><br>Adjunte FOTOCOPIA de la ficha técnica del vehículo así agilizará la búsqueda y solución de la avería.</p>
+      </div>
+      <div class="instruction-item">
+        <i class="fas fa-cogs"></i>
+        <p><strong>CODIFICACIONES Y AJUSTES</strong><br>Por norma general no es necesaria ningún ajuste luego de la reparación, no obstante si fuese necesario dependiendo el caso, tendría que hacerse siempre con el equipo original del vehículo.</p>
+      </div>
+      <div class="instruction-item">
+        <i class="fas fa-shield-alt"></i>
+        <p><strong>HASTA 24 MESES DE GARANTÍA</strong><br>Disfrute de la garantía que ofrecemos según la pieza reparada.</p>
+      </div>
+      <div class="centered-instruction">
+        <i class="fas fa-truck"></i>
+        <p><strong>ESTAMOS DE CAMINO, TENGA SU PIEZA LISTA</strong><br>Si por algún motivo no está lista a tiempo infórmenos por WhatsApp y pasaremos su orden de nuevo.</p>
+      </div>
+      <div class="centered-instruction">
+        <i class="fas fa-heart"></i>
+        <p><strong>GRACIAS POR SU CONFIANZA</strong></p>
+      </div>
     </div>
-
-    <div class="error-message" id="errorMessage"></div>
-    <button type="submit" class="btn">Enviar Solicitud</button>
-  </form>
-
+  </div>
   <script>
     const conditionsBox = document.getElementById('conditionsBox');
     const acceptCheckbox = document.getElementById('aceptaCondiciones');
     const form = document.getElementById('recogidaForm');
     const errorMessage = document.getElementById('errorMessage');
+    const successSection = document.getElementById('successSection');
 
     conditionsBox.addEventListener('scroll', () => {
       if (conditionsBox.scrollTop + conditionsBox.clientHeight >= conditionsBox.scrollHeight) {
@@ -112,24 +298,24 @@
           body: JSON.stringify(data)
         });
 
-        
-    const contentType = response.headers.get("content-type");
+        const contentType = response.headers.get("content-type");
+        let result = { mensaje: "Solicitud enviada correctamente." };
+        if (contentType && contentType.includes("application/json")) {
+          result = await response.json();
+        } else {
+          const text = await response.text();
+          result = { mensaje: text };
+        }
 
-  let result = { mensaje: "Solicitud enviada correctamente." };
-  if (contentType && contentType.includes("application/json")) {
-    result = await response.json();
-  } else {
-    const text = await response.text();
-    result = { mensaje: text };
-  }
-
-  alert(result.mensaje);
-  form.reset();
-  acceptCheckbox.disabled = true;
-} catch (err) {
-  errorMessage.textContent = 'Error al enviar la solicitud: ' + err.message;
-  errorMessage.style.display = 'block';
-}
+        alert(result.mensaje);
+        form.reset();
+        acceptCheckbox.disabled = true;
+        form.style.display = 'none';
+        successSection.style.display = 'block';
+      } catch (err) {
+        errorMessage.textContent = 'Error al enviar la solicitud: ' + err.message;
+        errorMessage.style.display = 'block';
+      }
     });
   </script>
 </body>
