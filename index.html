@@ -205,7 +205,7 @@
         </div>
       </div>
       <div class="form-section">
-        <label><input type="checkbox" id="aceptaCondiciones" name="aceptaCondiciones" required> He leído y acepto las Condiciones del Servicio. *</label>
+        <label><input type="checkbox" id="aceptaCondiciones" name="aceptaCondiciones" required disabled> He leído y acepto las Condiciones del Servicio. *</label>
       </div>
       <div class="error-message" id="errorMessage"></div>
       <button type="submit" class="btn">Enviar Solicitud</button>
@@ -246,6 +246,25 @@
       </div>
     </div>
   </div>
+  <script>
+    // Cargar Vercel Analytics de forma asíncrona
+    (function() {
+      var script = document.createElement('script');
+      script.src = 'https://va.vercel-scripts.com/v1/script.js';
+      script.async = true;
+      script.onload = function() {
+        if (window.VercelAnalytics) {
+          window.VercelAnalytics.inject();
+        } else {
+          console.warn('Vercel Analytics no está disponible');
+        }
+      };
+      script.onerror = function() {
+        console.error('Error al cargar Vercel Analytics');
+      };
+      document.head.appendChild(script);
+    })();
+  </script>
   <script>
     const conditionsBox = document.getElementById('conditionsBox');
     const acceptCheckbox = document.getElementById('aceptaCondiciones');
